@@ -1,0 +1,26 @@
+{
+  "commander": {
+    "name": "Commander",
+    "order_of_importance": 1
+  },
+  "corps": {
+    "name": "Corps",
+    "order_of_importance": 3
+  },
+  "operative": {
+    "name": "Operative",
+    "order_of_importance": 2
+  },
+  "special-forces": {
+    "name": "Special Forces",
+    "order_of_importance": 4
+  },
+  "support": {
+    "name": "Support",
+    "order_of_importance": 5
+  },
+  "heavy": {
+    "name": "Heavy",
+    "order_of_importance": 6
+  }
+}

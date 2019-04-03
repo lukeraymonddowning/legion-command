@@ -1,0 +1,116 @@
+[
+  {
+    "name": "Luke Skywalker",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/luke-skywalker.png",
+    "faction": "rebels",
+    "army_rank_id": "commander"
+  },
+  {
+    "name": "Darth Vader",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/darth-vader.png",
+    "faction": "imperials",
+    "army_rank_id": "commander"
+  },
+  {
+    "name": "Stormtroopers",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/stormtroopers.png",
+    "faction": "imperials",
+    "army_rank_id": "corps"
+  },
+  {
+    "name": "AT-ST",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/at-st.png",
+    "faction": "imperials",
+    "army_rank_id": "heavy"
+  },
+  {
+    "name": "74-Z Speeder Bikes",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/74-z-speeder-bikes.png",
+    "faction": "imperials",
+    "army_rank_id": "support"
+  },
+  {
+    "name": "Rebel Troopers",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/rebel-troopers.png",
+    "faction": "rebels",
+    "army_rank_id": "corps"
+  },
+  {
+    "name": "AT-RT",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/at-rt.png",
+    "faction": "rebels",
+    "army_rank_id": "support"
+  },
+  {
+    "name": "T-47 Airspeeder",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/t-47-airspeeder.png",
+    "faction": "rebels",
+    "army_rank_id": "heavy"
+  },
+  {
+    "name": "General Veers",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/general-veers.png",
+    "faction": "imperials",
+    "army_rank_id": "commander"
+  },
+  {
+    "name": "Snowtroopers",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/snowtroopers.png",
+    "faction": "imperials",
+    "army_rank_id": "corps"
+  },
+  {
+    "name": "Director Orson Krennic",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/director-orson-krennic.png",
+    "faction": "imperials",
+    "army_rank_id": "commander"
+  },
+  {
+    "name": "Emperor Palpatine",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/emperor-palpatine.png",
+    "faction": "imperials",
+    "army_rank_id": "commander"
+  },
+  {
+    "name": "Imperial Officer",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/imperial-officer.png",
+    "faction": "imperials",
+    "army_rank_id": "commander"
+  },
+  {
+    "name": "Boba Fett",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/boba-fett.png",
+    "faction": "imperials",
+    "army_rank_id": "operative"
+  },
+  {
+    "name": "Scout Troopers",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/scout-troopers.png",
+    "faction": "imperials",
+    "army_rank_id": "special-forces"
+  },
+  {
+    "name": "Scout Troopers Strike Team",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/scout-troopers-strike-team.png",
+    "faction": "imperials",
+    "army_rank_id": "special-forces"
+  },
+  {
+    "name": "Imperial Death Troopers",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/imperial-death-troopers.png",
+    "faction": "imperials",
+    "army_rank_id": "special-forces"
+  },
+  {
+    "name": "Imperial Royal Guards",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/imperial-royal-guards.png",
+    "faction": "imperials",
+    "army_rank_id": "special-forces"
+  },
+  {
+    "name": "E-Web Heavy Blaster Team",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/e-web-heavy-blaster-team.png",
+    "faction": "imperials",
+    "army_rank_id": "support"
+  }
+]
