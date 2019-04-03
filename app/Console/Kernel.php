@@ -2,7 +2,9 @@
 
 namespace App\Console;
 
+use App\ArmyCostRankAllowance;
 use App\ArmyRank;
+use App\Faction;
 use App\Unit;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -30,11 +32,15 @@ class Kernel extends ConsoleKernel
 
         // TODO: Remove and allow editing for admin in frontend.
         $schedule->call(function() {
+            Faction::prime_database();
+
             $units_array = json_decode(file_get_contents(storage_path() . '/json/units.json'), true);
             Unit::prime_database($units_array);
 
             $ranks_array = json_decode(file_get_contents(storage_path() . '/json/ranks.json'), true);
             ArmyRank::prime_database($ranks_array);
+
+            ArmyCostRankAllowance::primeDatabase();
         })->everyMinute()->name("import-units")->withoutOverlapping();
     }
 

@@ -1,12 +1,16 @@
 <template>
-    <div class="row">
-        <div v-for="(item, index) in unit_roster" class="col-12 col-lg-6 mb-3 mb-lg-4 d-flex flex-column flex-lg-column-reverse">
-            <div class="d-flex flex-row flex-lg-column-reverse align-items-center mt-lg-3">
-                <span class="flex-grow-1 mt-lg-2">{{ item.unit.name }}</span>
-                <remove-from-army-button v-bind:army-id="armyId" v-bind:unit-id="item.unit.id"></remove-from-army-button>
-            </div>
-            <img class="img-fluid mt-2 w-100" v-bind:src="item.unit.unit_card_image_asset_url"/>
+    <div>
+        <div class="row">
+            <div v-for="(item, index) in unit_roster"
+                 class="col-12 col-xl-4 col-md-6 mb-3 mb-lg-4 d-flex flex-column flex-md-column-reverse">
+                <div class="d-flex flex-row flex-md-column-reverse align-items-center mt-md-3">
+                    <span class="flex-grow-1 mt-md-2 ">{{ item.unit.name }}</span>
+                    <remove-from-army-button v-bind:army-id="armyId"
+                                             v-bind:unit-id="item.unit.id"></remove-from-army-button>
+                </div>
+                <img class="img-fluid mt-2 w-100" v-bind:src="item.unit.unit_card_image_asset_url"/>
 
+            </div>
         </div>
     </div>
 </template>

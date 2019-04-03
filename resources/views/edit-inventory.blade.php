@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 @card()
@@ -20,9 +20,9 @@
                             </div>
                         @endunless
                         @foreach ($faction->unitsOrdered() as $unit)
-                            <div class="col-12 col-lg-6 mb-4 d-flex flex-column flex-lg-column-reverse">
-                                <div class="d-flex flex-row flex-lg-column-reverse align-items-center mt-lg-3">
-                                    <span class="flex-grow-1 mt-lg-2 d-lg-none">{{ $unit->name }}</span>
+                            <div class="col-12 col-xl-4 col-md-6 mb-4 d-flex flex-column flex-md-column-reverse">
+                                <div class="d-flex flex-row flex-md-column-reverse align-items-center mt-md-3">
+                                    <span class="flex-grow-1 mt-md-2 d-lg-none">{{ $unit->name }}</span>
                                     <add-to-inventory-button v-bind:unit-id="{{ $unit->id }}"></add-to-inventory-button>
                                 </div>
                                 <img class="img-fluid mt-2 w-100" src="{{ $unit->unit_card_image_asset_url }}" alt="{{ __("Unit card for") }} {{ $unit->name }}">

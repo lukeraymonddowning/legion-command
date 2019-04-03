@@ -4,6 +4,7 @@ namespace App;
 
 use App\Scopes\UnitsExistScope;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 
 class Faction extends Model
 {
@@ -48,10 +49,13 @@ class Faction extends Model
         ];
 
         foreach ($factions as $faction_data) {
-            $faction = Faction::firstOrNew($faction_data['id']);
+            $faction = Faction::firstOrNew(['id' => $faction_data['id']]);
             $faction->fill($faction_data);
             $faction->save();
         }
+
+        Cache::forget('factions');
+        Cache::forever('factions', Faction::all()->sortBy('name'));
 
     }
 

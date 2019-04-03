@@ -4,7 +4,7 @@
 
     <form method="post" action="{{ route('save-army', ['army_id' => $army->id, 'faction_id' => $faction->id]) }}">
         @csrf
-        <div class="container">
+        <div class="container-fluid">
 
             <div class="mb-5">
                 <label for="army_name">{{ __("Name") }}</label>
@@ -25,26 +25,15 @@
                     <textarea class="form-control" id="army_description" name="description"
                               rows="3">{{ $army->description }}</textarea>
                 </div>
-                <label for="points_limit">Army size</label>
-                <select id="points_limit" name="points_limit" class="custom-select">
-                    @foreach([800 => 'Standard', 1600 => 'Grand army', 1200 => '2v2', 600 => 'Small', 500 => 'Extra small'] as $value => $name)
-                        <option value="{{ $value }}" @if ($army->points_limit === $value) {{ "selected" }} @endif>{{ $name }} ({{ $value }})</option>
-                    @endforeach
-                </select>
             </div>
 
             <div class="row justify-content-center">
                 <div class="col-md-6">
-                    @card()
-                    @slot('title')
-                        {{__("Available units")}}
-                    @endslot
-
-                    <inventory-list-component v-bind:type="'army'"
-                                              v-bind:army-id="{{ $army->id }}"
-                                              v-bind:factions="{{ json_encode([$faction], JSON_FORCE_OBJECT) }}"></inventory-list-component>
-
-                    @endcard
+                    <edit-army-left-panel
+                            v-bind:limit-to-inventory="{{ empty($army->limit_to_user_inventory) ? 'false' : 'true' }}"
+                            v-bind:title="'{{ __("Available units") }}'"
+                            v-bind:army-id="{{ $army->id }}"
+                            v-bind:factions="{{ json_encode([$faction], JSON_FORCE_OBJECT) }}"></edit-army-left-panel>
                 </div>
 
                 <div class="col-md-6">
@@ -52,9 +41,24 @@
                     @slot('title')
                         {{__("Selected units")}}
                     @endslot
+                    @slot('actions')
+                        <div class="d-flex flex-row align-items-center">
+                            <army-points-cost v-bind:army-id="{{ $army->id }}"></army-points-cost>
+                            <span class="ml-2">/</span>
+                            <select id="points_limit" name="points_limit" class="ml-2 custom-select custom-select-sm">
+                                @foreach([800 => 'Standard', 1600 => 'Grand army', 1200 => '2v2', 600 => 'Small', 500 => 'Extra small'] as $value => $name)
+                                    <option value="{{ $value }}" @if ($army->points_limit === $value) {{ "selected" }} @endif>{{ $name }}
+                                        ({{ $value }})
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    @endslot
 
-                    <army-list-component v-bind:faction="{{ json_encode($faction) }}"
-                                         v-bind:army-id="{{ $army->id }}"
+                    <army-unit-rank-count-display v-bind:army-id="{{ $army->id }}"></army-unit-rank-count-display>
+                    <army-list-component
+                            v-bind:faction="{{ json_encode($faction) }}"
+                            v-bind:army-id="{{ $army->id }}"
                     ></army-list-component>
 
                     @endcard

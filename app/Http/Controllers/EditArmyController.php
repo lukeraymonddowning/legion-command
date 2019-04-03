@@ -46,6 +46,7 @@ class EditArmyController extends Controller
             $army->name = Input::get('name');
             $army->description = Input::get('description', '');
             $army->points_limit = Input::get('points_limit', 800);
+            $army->limit_to_user_inventory = !empty(Input::get('limitUnitsToInventory', false)) ? 1 : 0;
             $army->save();
 
         }

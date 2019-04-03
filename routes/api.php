@@ -1,5 +1,6 @@
 <?php
 
+use App\ArmyCostRankAllowance;
 use App\ArmyRoster;
 use App\Unit;
 use Illuminate\Http\Request;
@@ -24,19 +25,19 @@ Route::middleware('auth:api')->get('/user/inventory', function (Request $request
     return $request->user()->inventory()->with('unit')->get()->sortBy('unit.name')->sortBy('unit.rank.order_of_importance')->sortBy('unit.faction')->values()->toJson();
 });
 
-Route::middleware('auth:api')->put('/user/inventory/{unit_id}', function(Request $request, $unit_id) {
+Route::middleware('auth:api')->put('/user/inventory/{unit_id}', function (Request $request, $unit_id) {
     $inventory_item = new \App\Inventory(['unit_id' => $unit_id]);
     $request->user()->inventory()->save($inventory_item);
 });
 
-Route::middleware('auth:api')->delete('/user/inventory/{unit_id}', function(Request $request, $unit_id) {
+Route::middleware('auth:api')->delete('/user/inventory/{unit_id}', function (Request $request, $unit_id) {
     \App\Inventory::where([
         ['user_id', $request->user()->id],
         ['unit_id', $unit_id]
     ])->take(1)->delete();
 });
 
-Route::middleware('auth:api')->post('/user/armies/{faction_id}', function(Request $request, $faction_id) {
+Route::middleware('auth:api')->post('/user/armies/{faction_id}', function (Request $request, $faction_id) {
     $params = ['faction_id' => $faction_id, 'name' => Input::get('name', '')];
     $army = new \App\Army($params);
     $request->user()->armies()->save($army);
@@ -46,6 +47,44 @@ Route::middleware('auth:api')->post('/user/armies/{faction_id}', function(Reques
 
 Route::middleware('auth:api')->get('/user/armies/{army_id}', function (Request $request, $army_id) {
     return $request->user()->armies()->where('id', $army_id)->first()->army_roster()->with('unit')->get()->sortBy('unit.name')->sortBy('unit.rank.order_of_importance')->values()->toJson();
+});
+
+Route::middleware('auth:api')->get('/user/armies/{army_id}/simple', function (Request $request, $army_id) {
+    return $request->user()->armies()->where('id', $army_id)->first()->army_roster()->with('unit')->get()->sortBy('unit.name')->sortBy('unit.rank.order_of_importance')->values()->map(function ($roster) {
+        return $roster->unit->id;
+    })->toJson();
+});
+
+Route::middleware('auth:api')->get('/user/armies/{army_id}/rank', function (Request $request, $army_id) {
+    $army = $request->user()->armies()->where('id', $army_id)->first();
+    $roster = $army->army_roster()->with('unit')->get()->values();
+
+    $rankCountGroups = $roster->mapToGroups(function ($roster, $key) {
+        return [$roster->unit->rank->id => [$roster->id]];
+    })->map(function ($unit_ids) {
+        return count($unit_ids);
+    });
+
+    $allowances = ArmyCostRankAllowance::where('points', $army->points_limit)->select('army_rank_id', 'allowance', 'minimum')->with('rank')->get()->values()->sortBy('rank.order_of_importance')->mapWithKeys(function($allowance, $key) {
+        $rank_id = $allowance->army_rank_id;
+        $rank_name = $allowance->rank->name;
+        unset($allowance->army_rank_id);
+        unset($allowance->rank);
+        $allowance['name'] = $rank_name;
+        return [$rank_id => $allowance];
+    });
+
+    foreach ($rankCountGroups as $rankId => $count) {
+        $allowances[$rankId]['count'] = $count;
+    }
+
+    return $allowances->toJson();
+});
+
+Route::middleware('auth:api')->get('/user/armies/{army_id}/points', function (Request $request, $army_id) {
+    return array_sum($request->user()->armies()->where('id', $army_id)->first()->army_roster()->with('unit')->get()->map(function ($roster) {
+        return $roster->unit->points_cost;
+    })->values()->toArray());
 });
 
 Route::middleware('auth:api')->put('/user/armies/{army_id}/{unit_id}', function (Request $request, $army_id, $unit_id) {

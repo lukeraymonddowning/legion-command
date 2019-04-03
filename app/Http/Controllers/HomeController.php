@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Army;
 use App\Faction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class HomeController extends Controller
 {
@@ -26,7 +27,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         return view('home', [
-            'factions' => Faction::all()->sortBy('name'),
+            'factions' => Cache::get('factions'),
             'armies' => $request->user()->armies()->with('faction')->get()
         ]);
     }

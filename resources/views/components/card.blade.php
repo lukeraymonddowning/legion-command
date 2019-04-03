@@ -9,7 +9,6 @@
             </div>
         @endisset
     </div>
-
     <div class="card-body">
         {{ $slot }}
     </div>

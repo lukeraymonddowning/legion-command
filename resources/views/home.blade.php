@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 @card()
@@ -55,6 +55,8 @@
                                 <div class="d-flex flex-row align-items-center">
                                     <div class="flex-grow-1 mr-3">
                                         <b><span class="h5">{{ empty($army->name) ? __("Nameless army") : $army->name }}</span></b>
+                                        <br>
+                                        <span><army-points-cost v-bind:army-id="{{ $army->id }}"></army-points-cost> points</span>
                                         <br>
                                         <span><i>{{ $army->faction->name }}</i></span>
                                         <br>

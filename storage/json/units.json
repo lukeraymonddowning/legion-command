@@ -3,114 +3,139 @@
     "name": "Luke Skywalker",
     "unit_card_image_asset_url": "/assets/images/unit_cards/luke-skywalker.png",
     "faction": "rebels",
-    "army_rank_id": "commander"
+    "army_rank_id": "commander",
+    "unique": 1,
+    "points_cost": 160
   },
   {
     "name": "Darth Vader",
     "unit_card_image_asset_url": "/assets/images/unit_cards/darth-vader.png",
     "faction": "imperials",
-    "army_rank_id": "commander"
+    "army_rank_id": "commander",
+    "unique": 1,
+    "points_cost": 200
   },
   {
     "name": "Stormtroopers",
     "unit_card_image_asset_url": "/assets/images/unit_cards/stormtroopers.png",
     "faction": "imperials",
-    "army_rank_id": "corps"
+    "army_rank_id": "corps",
+    "points_cost": 44
   },
   {
     "name": "AT-ST",
     "unit_card_image_asset_url": "/assets/images/unit_cards/at-st.png",
     "faction": "imperials",
-    "army_rank_id": "heavy"
+    "army_rank_id": "heavy",
+    "points_cost": 195
   },
   {
     "name": "74-Z Speeder Bikes",
     "unit_card_image_asset_url": "/assets/images/unit_cards/74-z-speeder-bikes.png",
     "faction": "imperials",
-    "army_rank_id": "support"
+    "army_rank_id": "support",
+    "points_cost": 90
   },
   {
     "name": "Rebel Troopers",
     "unit_card_image_asset_url": "/assets/images/unit_cards/rebel-troopers.png",
     "faction": "rebels",
-    "army_rank_id": "corps"
+    "army_rank_id": "corps",
+    "points_cost": 40
   },
   {
     "name": "AT-RT",
     "unit_card_image_asset_url": "/assets/images/unit_cards/at-rt.png",
     "faction": "rebels",
-    "army_rank_id": "support"
+    "army_rank_id": "support",
+    "points_cost": 55
   },
   {
     "name": "T-47 Airspeeder",
     "unit_card_image_asset_url": "/assets/images/unit_cards/t-47-airspeeder.png",
     "faction": "rebels",
-    "army_rank_id": "heavy"
+    "army_rank_id": "heavy",
+    "points_cost": 175
   },
   {
     "name": "General Veers",
     "unit_card_image_asset_url": "/assets/images/unit_cards/general-veers.png",
     "faction": "imperials",
-    "army_rank_id": "commander"
+    "army_rank_id": "commander",
+    "unique": 1,
+    "points_cost": 80
   },
   {
     "name": "Snowtroopers",
     "unit_card_image_asset_url": "/assets/images/unit_cards/snowtroopers.png",
     "faction": "imperials",
-    "army_rank_id": "corps"
+    "army_rank_id": "corps",
+    "points_cost": 48
   },
   {
     "name": "Director Orson Krennic",
     "unit_card_image_asset_url": "/assets/images/unit_cards/director-orson-krennic.png",
     "faction": "imperials",
-    "army_rank_id": "commander"
+    "army_rank_id": "commander",
+    "unique": 1,
+    "points_cost": 90
   },
   {
     "name": "Emperor Palpatine",
     "unit_card_image_asset_url": "/assets/images/unit_cards/emperor-palpatine.png",
     "faction": "imperials",
-    "army_rank_id": "commander"
+    "army_rank_id": "commander",
+    "unique": 1,
+    "points_cost": 210
   },
   {
     "name": "Imperial Officer",
     "unit_card_image_asset_url": "/assets/images/unit_cards/imperial-officer.png",
     "faction": "imperials",
-    "army_rank_id": "commander"
+    "army_rank_id": "commander",
+    "points_cost": 50
   },
   {
     "name": "Boba Fett",
     "unit_card_image_asset_url": "/assets/images/unit_cards/boba-fett.png",
     "faction": "imperials",
-    "army_rank_id": "operative"
+    "army_rank_id": "operative",
+    "unique": 1,
+    "points_cost": 140
   },
   {
     "name": "Scout Troopers",
     "unit_card_image_asset_url": "/assets/images/unit_cards/scout-troopers.png",
     "faction": "imperials",
-    "army_rank_id": "special-forces"
+    "army_rank_id": "special-forces",
+    "points_cost": 60
   },
   {
     "name": "Scout Troopers Strike Team",
     "unit_card_image_asset_url": "/assets/images/unit_cards/scout-troopers-strike-team.png",
     "faction": "imperials",
-    "army_rank_id": "special-forces"
+    "army_rank_id": "special-forces",
+    "points_cost": 16
   },
   {
     "name": "Imperial Death Troopers",
     "unit_card_image_asset_url": "/assets/images/unit_cards/imperial-death-troopers.png",
     "faction": "imperials",
-    "army_rank_id": "special-forces"
+    "army_rank_id": "special-forces",
+    "points_cost": 76
   },
   {
     "name": "Imperial Royal Guards",
     "unit_card_image_asset_url": "/assets/images/unit_cards/imperial-royal-guards.png",
     "faction": "imperials",
-    "army_rank_id": "special-forces"
+    "army_rank_id": "special-forces",
+    "points_cost": 75
   },
   {
     "name": "E-Web Heavy Blaster Team",
     "unit_card_image_asset_url": "/assets/images/unit_cards/e-web-heavy-blaster-team.png",
     "faction": "imperials",
-    "army_rank_id": "support"
+    "army_rank_id": "support",
+    "points_cost": 55
   }
 ]

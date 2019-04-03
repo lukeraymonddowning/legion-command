@@ -15,7 +15,9 @@ class Unit extends Model
         'name',
         'unit_card_image_asset_url',
         'faction',
-        'army_rank_id'
+        'army_rank_id',
+        'unique',
+        'points_cost'
     ];
 
     public static function prime_database($units_json) {

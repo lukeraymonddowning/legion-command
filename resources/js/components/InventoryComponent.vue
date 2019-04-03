@@ -1,8 +1,9 @@
 <template>
     <div class="row">
-        <div v-if="isFactionAllowed(item.unit)" v-for="item in inventory" class="col-12 col-lg-6 mb-3 mb-lg-4 d-flex flex-column flex-lg-column-reverse">
-            <div class="d-flex flex-row flex-lg-column-reverse align-items-center mt-lg-3">
-                <span class="flex-grow-1 mt-lg-2"><b>{{ item.unit_count }}x</b> {{ item.unit.name }}</span>
+        <div v-if="isFactionAllowed(item.unit) && (item.unit_count - findUnitsUsedInstances(item.unit.id) > 0) && (!item.unit.unique || findUnitsUsedInstances(item.unit.id) === 0)"
+             v-for="item in inventory" class="col-12 col-xl-4 col-md-6 mb-3 mb-lg-4 d-flex flex-column flex-md-column-reverse">
+            <div class="d-flex flex-row flex-md-column-reverse align-items-center mt-md-3">
+                <span class="flex-grow-1 mt-md-2"><b>{{ (item.unit_count - findUnitsUsedInstances(item.unit.id)) }}x</b> {{ item.unit.name }}</span>
                 <component v-bind:is="actionComponent" v-bind="getActionProps(item)"></component>
             </div>
             <img class="img-fluid mt-2 w-100" v-bind:src="item.unit.unit_card_image_asset_url"/>
@@ -30,18 +31,19 @@
             },
             factions: {
                 type: Object,
-                default: function() {
+                default: function () {
                     return {};
                 }
             },
             armyId: {
                 default: null,
                 type: Number
-            }
+            },
+
         },
 
         computed: {
-            actionComponent()  {
+            actionComponent() {
                 if (this.showActions === false)
                     return null;
 
@@ -60,7 +62,10 @@
          */
         data() {
             return {
-                inventory: []
+                inventory: [],
+                unitsUsed: {
+                    d: []
+                },
             };
         },
 
@@ -79,6 +84,9 @@
             EventBus.$on('inventory-edited', () => {
                 this.getInventory();
             });
+            EventBus.$on('army-units-edited', ($army_id) => {
+                this.getArmy($army_id);
+            });
         },
 
         methods: {
@@ -87,6 +95,8 @@
              */
             prepareComponent() {
                 this.getInventory();
+                if (this.armyId !== null)
+                    this.getArmy(this.armyId);
             },
 
             /**
@@ -131,6 +141,30 @@
 
             getEmptyArray() {
                 return [];
+            },
+
+            findUnitsUsedInstances(unit_id) {
+
+                const counts = {};
+
+                for (var i = 0; i < this.unitsUsed.d.length; i++) {
+                    var num = this.unitsUsed.d[i];
+                    counts[num] = counts[num] ? counts[num] + 1 : 1;
+                }
+
+                console.log(counts.hasOwnProperty(unit_id) ? counts[unit_id] : 0);
+
+                return counts.hasOwnProperty(unit_id) ? counts[unit_id] : 0;
+            },
+
+            getArmy(armyId) {
+                if (armyId === null)
+                    return;
+
+                axios.get(`/api/user/armies/${armyId}/simple`)
+                    .then(response => {
+                        this.$set(this.unitsUsed, 'd', response.data);
+                    });
             }
         }
     }

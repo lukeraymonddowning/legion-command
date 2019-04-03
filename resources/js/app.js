@@ -53,6 +53,11 @@ Vue.component(
 );
 
 Vue.component(
+    'edit-army-left-panel',
+    require('./components/EditArmyLeftPanel.vue').default
+);
+
+Vue.component(
     'army-list-component',
     require('./components/ArmyListComponent.vue').default
 );
@@ -65,6 +70,16 @@ Vue.component(
 Vue.component(
     'remove-from-army-button',
     require('./components/RemoveFromArmyButtonComponent.vue').default
+);
+
+Vue.component(
+    'army-points-cost',
+    require('./components/ArmyPointsCost.vue').default
+);
+
+Vue.component(
+    'army-unit-rank-count-display',
+    require('./components/ArmyUnitRankCountDisplay.vue').default
 );
 
 /**
