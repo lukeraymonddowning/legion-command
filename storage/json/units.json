@@ -137,5 +137,117 @@
     "faction": "imperials",
     "army_rank_id": "support",
     "points_cost": 55
+  },
+  {
+    "name": "Han Solo",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/han-solo.png",
+    "faction": "rebels",
+    "army_rank_id": "commander",
+    "points_cost": 120,
+    "unique": 1
+  },
+  {
+      "name": "Leia Organa",
+      "unit_card_image_asset_url": "/assets/images/unit_cards/leia-organa.png",
+      "faction": "rebels",
+      "army_rank_id": "commander",
+      "points_cost": "90",
+      "unique": 1
+  },
+  {
+      "name": "Jyn Erso",
+      "unit_card_image_asset_url": "/assets/images/unit_cards/jyn-erso.png",
+      "faction": "rebels",
+      "army_rank_id": "commander",
+      "points_cost": "130",
+      "unique": 1
+  },
+  {
+      "name": "Rebel Officer",
+      "unit_card_image_asset_url": "/assets/images/unit_cards/rebel-officer.png",
+      "faction": "rebels",
+      "army_rank_id": "commander",
+      "points_cost": "50",
+      "unique": 0
+  },
+  {
+      "name": "Chewbacca",
+      "unit_card_image_asset_url": "/assets/images/unit_cards/chewbacca.png",
+      "faction": "rebels",
+      "army_rank_id": "operative",
+      "points_cost": "110",
+      "unique": 1
+  },
+  {
+      "name": "Rebel Commandos",
+      "unit_card_image_asset_url": "/assets/images/unit_cards/rebel-commandos.png",
+      "faction": "rebels",
+      "army_rank_id": "special-forces",
+      "points_cost": "60",
+      "unique": 0
+  },
+  {
+      "name": "Rebel Commandos Strike Team",
+      "unit_card_image_asset_url": "/assets/images/unit_cards/rebel-commandos-strike-team.png",
+      "faction": "rebels",
+      "army_rank_id": "special-forces",
+      "points_cost": "16",
+      "unique": 0
+  },
+  {
+      "name": "Wookiee Warriors",
+      "unit_card_image_asset_url": "/assets/images/unit_cards/wookiee-warriors.png",
+      "faction": "rebels",
+      "army_rank_id": "special-forces",
+      "points_cost": "75",
+      "unique": 0
+  },
+  {
+      "name": "Rebel Pathfinders",
+      "unit_card_image_asset_url": "/assets/images/unit_cards/rebel-pathfinders.png",
+      "faction": "rebels",
+      "army_rank_id": "special-forces",
+      "points_cost": "68",
+      "unique": 0
+  },
+  {
+      "name": "1.4 FD Laser Cannon Team",
+      "unit_card_image_asset_url": "/assets/images/unit_cards/1.4-fd-laser-cannon-team.png",
+      "faction": "rebels",
+      "army_rank_id": "support",
+      "points_cost": "70",
+      "unique": 0
+  },
+  {
+      "name": "TX-225 GAVw Occupier Combat Assault Tank",
+      "unit_card_image_asset_url": "/assets/images/unit_cards/tx-225-gavw-occupier-combat-assualt-tank.jpg",
+      "faction": "imperials",
+      "army_rank_id": "heavy",
+      "points_cost": "155",
+      "unique": 0
+  },
+  {
+      "name": "Sabine Wren",
+      "unit_card_image_asset_url": "/assets/images/unit_cards/sabine-wren.jpg",
+      "faction": "rebels",
+      "army_rank_id": "operative",
+      "points_cost": "125",
+      "unique": 1
+  },
+  {
+      "name": "Bossk",
+      "unit_card_image_asset_url": "/assets/images/unit_cards/bossk.jpg",
+      "faction": "imperials",
+      "army_rank_id": "operative",
+      "points_cost": "115",
+      "unique": 1
+  },
+  {
+      "name": "Fleet Troopers",
+      "unit_card_image_asset_url": "/assets/images/unit_cards/fleet-troopers.png",
+      "faction": "rebels",
+      "army_rank_id": "corps",
+      "points_cost": "44",
+      "unique": 0
   }
 ]

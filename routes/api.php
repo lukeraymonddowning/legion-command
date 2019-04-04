@@ -2,6 +2,8 @@
 
 use App\ArmyCostRankAllowance;
 use App\ArmyRoster;
+use App\Faction;
+use App\Inventory;
 use App\Unit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -22,16 +24,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::middleware('auth:api')->get('/user/inventory', function (Request $request) {
-    return $request->user()->inventory()->with('unit')->get()->sortBy('unit.name')->sortBy('unit.rank.order_of_importance')->sortBy('unit.faction')->values()->toJson();
+    return $request->user()->inventory()->with('unit')->get()->sortBy('unit.name')->sortBy('unit.rank.order_of_importance')->sortBy('unit.faction')->toJson();
 });
 
 Route::middleware('auth:api')->put('/user/inventory/{unit_id}', function (Request $request, $unit_id) {
-    $inventory_item = new \App\Inventory(['unit_id' => $unit_id]);
+    $inventory_item = new Inventory(['unit_id' => $unit_id]);
     $request->user()->inventory()->save($inventory_item);
 });
 
 Route::middleware('auth:api')->delete('/user/inventory/{unit_id}', function (Request $request, $unit_id) {
-    \App\Inventory::where([
+    Inventory::where([
         ['user_id', $request->user()->id],
         ['unit_id', $unit_id]
     ])->take(1)->delete();
@@ -101,5 +103,8 @@ Route::middleware('auth:api')->delete('/user/armies/{army_id}/{unit_id}', functi
     ])->first()->delete();
 });
 
+Route::middleware('auth:api')->get('/factions/{faction_id}', function (Request $request, $faction_id) {
+    return Faction::where('id', $faction_id)->with('units')->get()->sortBy('unit.army_rank_id')->toJson();
+});
 
 

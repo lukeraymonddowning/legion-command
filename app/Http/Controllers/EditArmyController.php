@@ -40,7 +40,7 @@ class EditArmyController extends Controller
             );
         }
 
-        if ($request->filled('save_army') || $request->filled('save_army_exit')) {
+        if ($request->filled('save_army') || $request->filled('save_army_exit') || $request->filled('points_limit')) {
 
             $army = $request->user()->armies()->where('id', $army_id)->first();
             $army->name = Input::get('name');
@@ -49,19 +49,17 @@ class EditArmyController extends Controller
             $army->limit_to_user_inventory = !empty(Input::get('limitUnitsToInventory', false)) ? 1 : 0;
             $army->save();
 
-        }
+            if ($request->filled('save_army_exit')) {
+                return Redirect::to(
+                    route('home')
+                );
+            }
 
-        // Return them to the same page
-        if ($request->filled('save_army')) {
             return Redirect::to(
                 route('edit-army', [
                     'faction_id' => $faction_id,
                     'army_id' => $army_id
                 ])
-            );
-        } else if ($request->filled('save_army_exit')) {
-            return Redirect::to(
-                route('home')
             );
         }
 

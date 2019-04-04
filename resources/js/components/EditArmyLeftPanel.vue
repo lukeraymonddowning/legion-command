@@ -16,7 +16,9 @@
         </div>
 
         <div class="card-body">
-            <component v-bind:is="listComponent" v-bind="getListProps()"></component>
+            <keep-alive>
+                <component v-bind:is="listComponent" v-bind="getListProps()"></component>
+            </keep-alive>
         </div>
     </div>
 </template>
@@ -25,10 +27,10 @@
 
     import {EventBus} from "../EventBus";
     import InventoryComponent from "./InventoryComponent";
-    import ExampleComponent from "./ExampleComponent";
+    import AllUnitsComponent from "./AllUnitsComponent";
 
     export default {
-        components: {InventoryComponent, ExampleComponent},
+        components: {InventoryComponent, AllUnitsComponent},
 
         props: {
             title: {
@@ -56,7 +58,7 @@
                 if (this.listType.d === 'inventory') {
                     return "InventoryComponent";
                 } else if (this.listType.d === 'standard') {
-                    return "ExampleComponent";
+                    return "AllUnitsComponent";
                 }
 
                 return null;
@@ -99,6 +101,7 @@
             getListProps() {
                 if (this.listType.d === 'standard') {
                     return {
+                        showActions: true,
                         armyId: this.armyId,
                         factions: this.factions
                     };

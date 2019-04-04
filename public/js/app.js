@@ -1859,6 +1859,155 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AllUnitsComponent.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AllUnitsComponent.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _EventBus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../EventBus */ "./resources/js/EventBus.js");
+/* harmony import */ var _RemoveFromInventoryButtonComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RemoveFromInventoryButtonComponent */ "./resources/js/components/RemoveFromInventoryButtonComponent.vue");
+/* harmony import */ var _AddToArmyButtonComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AddToArmyButtonComponent */ "./resources/js/components/AddToArmyButtonComponent.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    RemoveFromInventoryButtonComponent: _RemoveFromInventoryButtonComponent__WEBPACK_IMPORTED_MODULE_1__["default"],
+    AddToArmyButtonComponent: _AddToArmyButtonComponent__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  props: {
+    showActions: {
+      default: true,
+      type: Boolean
+    },
+    factions: {
+      type: Object,
+      default: function _default() {
+        return {};
+      }
+    },
+    armyId: {
+      default: null,
+      type: Number
+    }
+  },
+  computed: {},
+
+  /*
+   * The component's data.
+   */
+  data: function data() {
+    return {
+      unitsUsed: {
+        d: []
+      },
+      units: {
+        d: []
+      }
+    };
+  },
+
+  /**
+   * Prepare the component (Vue 1.x).
+   */
+  ready: function ready() {},
+
+  /**
+   * Prepare the component (Vue 2.x).
+   */
+  mounted: function mounted() {
+    var _this = this;
+
+    this.prepareComponent();
+    _EventBus__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$on('army-units-edited', function ($army_id) {
+      _this.getArmy($army_id);
+    });
+  },
+  methods: {
+    /**
+     * Prepare the component (Vue 2.x).
+     */
+    prepareComponent: function prepareComponent() {
+      this.getUnits();
+      if (this.armyId !== null) this.getArmy(this.armyId);
+    },
+    isFactionAllowed: function isFactionAllowed(unit) {
+      var _this2 = this;
+
+      // Turn the factions object into an array
+      var factions_array = Object.keys(this.factions).map(function (k) {
+        return _this2.factions[k];
+      }); // If the array is empty, it means we want to show all factions
+
+      if (factions_array.length === 0) return true; // Then check if the unit's faction is in the allowed faction array
+
+      return factions_array.map(function (faction_obj) {
+        return faction_obj.id;
+      }).includes(unit.faction);
+    },
+    findUnitsUsedInstances: function findUnitsUsedInstances(unit_id) {
+      var counts = {};
+
+      for (var i = 0; i < this.unitsUsed.d.length; i++) {
+        var num = this.unitsUsed.d[i];
+        counts[num] = counts[num] ? counts[num] + 1 : 1;
+      }
+
+      return counts.hasOwnProperty(unit_id) ? counts[unit_id] : 0;
+    },
+    getActionProps: function getActionProps(item) {
+      if (this.showActions === false) return null;
+
+      if (this.type === 'inventory') {
+        return {
+          unitId: item.unit.id
+        };
+      } else if (this.type === 'army') {
+        return {
+          unitId: item.unit.id,
+          armyId: this.armyId
+        };
+      }
+
+      return null;
+    },
+    getUnits: function getUnits() {
+      var _this3 = this;
+
+      axios.get("/api/factions/".concat(this.factions[0].id)).then(function (response) {
+        _this3.$set(_this3.units, 'd', response.data[0].units);
+      });
+    },
+    getArmy: function getArmy(armyId) {
+      var _this4 = this;
+
+      if (armyId === null) return;
+      axios.get("/api/user/armies/".concat(armyId, "/simple")).then(function (response) {
+        _this4.$set(_this4.unitsUsed, 'd', response.data);
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ArmyListComponent.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ArmyListComponent.vue?vue&type=script&lang=js& ***!
@@ -2092,7 +2241,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _EventBus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../EventBus */ "./resources/js/EventBus.js");
 /* harmony import */ var _InventoryComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./InventoryComponent */ "./resources/js/components/InventoryComponent.vue");
-/* harmony import */ var _ExampleComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ExampleComponent */ "./resources/js/components/ExampleComponent.vue");
+/* harmony import */ var _AllUnitsComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AllUnitsComponent */ "./resources/js/components/AllUnitsComponent.vue");
+//
+//
 //
 //
 //
@@ -2122,7 +2273,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     InventoryComponent: _InventoryComponent__WEBPACK_IMPORTED_MODULE_1__["default"],
-    ExampleComponent: _ExampleComponent__WEBPACK_IMPORTED_MODULE_2__["default"]
+    AllUnitsComponent: _AllUnitsComponent__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   props: {
     title: {
@@ -2149,7 +2300,7 @@ __webpack_require__.r(__webpack_exports__);
       if (this.listType.d === 'inventory') {
         return "InventoryComponent";
       } else if (this.listType.d === 'standard') {
-        return "ExampleComponent";
+        return "AllUnitsComponent";
       }
 
       return null;
@@ -2190,6 +2341,7 @@ __webpack_require__.r(__webpack_exports__);
     getListProps: function getListProps() {
       if (this.listType.d === 'standard') {
         return {
+          showActions: true,
           armyId: this.armyId,
           factions: this.factions
         };
@@ -2408,7 +2560,6 @@ __webpack_require__.r(__webpack_exports__);
         counts[num] = counts[num] ? counts[num] + 1 : 1;
       }
 
-      console.log(counts.hasOwnProperty(unit_id) ? counts[unit_id] : 0);
       return counts.hasOwnProperty(unit_id) ? counts[unit_id] : 0;
     },
     getArmy: function getArmy(armyId) {
@@ -39133,6 +39284,70 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AllUnitsComponent.vue?vue&type=template&id=5b4637f4&":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AllUnitsComponent.vue?vue&type=template&id=5b4637f4& ***!
+  \********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "row" },
+    _vm._l(_vm.units.d, function(item) {
+      return _vm.isFactionAllowed(item) &&
+        (!item.unique || _vm.findUnitsUsedInstances(item.id) === 0)
+        ? _c(
+            "div",
+            {
+              staticClass:
+                "col-12 col-xl-4 col-md-6 mb-3 mb-lg-4 d-flex flex-column flex-md-column-reverse"
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "d-flex flex-row flex-md-column-reverse align-items-center mt-md-3"
+                },
+                [
+                  _c("span", { staticClass: "flex-grow-1 mt-md-2" }, [
+                    _vm._v(_vm._s(item.name))
+                  ]),
+                  _vm._v(" "),
+                  _c("add-to-army-button", {
+                    attrs: { "unit-id": item.id, "army-id": _vm.armyId }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("img", {
+                staticClass: "img-fluid mt-2 w-100",
+                attrs: { src: item.unit_card_image_asset_url }
+              })
+            ]
+          )
+        : _vm._e()
+    }),
+    0
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ArmyListComponent.vue?vue&type=template&id=0cb24f87&":
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ArmyListComponent.vue?vue&type=template&id=0cb24f87& ***!
@@ -39382,8 +39597,19 @@ var render = function() {
       { staticClass: "card-body" },
       [
         _c(
-          _vm.listComponent,
-          _vm._b({ tag: "component" }, "component", _vm.getListProps(), false)
+          "keep-alive",
+          [
+            _c(
+              _vm.listComponent,
+              _vm._b(
+                { tag: "component" },
+                "component",
+                _vm.getListProps(),
+                false
+              )
+            )
+          ],
+          1
         )
       ],
       1
@@ -52840,6 +53066,7 @@ Vue.component('add-to-army-button', __webpack_require__(/*! ./components/AddToAr
 Vue.component('remove-from-army-button', __webpack_require__(/*! ./components/RemoveFromArmyButtonComponent.vue */ "./resources/js/components/RemoveFromArmyButtonComponent.vue").default);
 Vue.component('army-points-cost', __webpack_require__(/*! ./components/ArmyPointsCost.vue */ "./resources/js/components/ArmyPointsCost.vue").default);
 Vue.component('army-unit-rank-count-display', __webpack_require__(/*! ./components/ArmyUnitRankCountDisplay.vue */ "./resources/js/components/ArmyUnitRankCountDisplay.vue").default);
+Vue.component('all-units-list', __webpack_require__(/*! ./components/AllUnitsComponent.vue */ "./resources/js/components/AllUnitsComponent.vue").default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -53045,6 +53272,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddToInventoryButtonComponent_vue_vue_type_template_id_31fd07a0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AddToInventoryButtonComponent_vue_vue_type_template_id_31fd07a0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/AllUnitsComponent.vue":
+/*!*******************************************************!*\
+  !*** ./resources/js/components/AllUnitsComponent.vue ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AllUnitsComponent_vue_vue_type_template_id_5b4637f4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AllUnitsComponent.vue?vue&type=template&id=5b4637f4& */ "./resources/js/components/AllUnitsComponent.vue?vue&type=template&id=5b4637f4&");
+/* harmony import */ var _AllUnitsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AllUnitsComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/AllUnitsComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _AllUnitsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AllUnitsComponent_vue_vue_type_template_id_5b4637f4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AllUnitsComponent_vue_vue_type_template_id_5b4637f4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/AllUnitsComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/AllUnitsComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/AllUnitsComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AllUnitsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./AllUnitsComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AllUnitsComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AllUnitsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/AllUnitsComponent.vue?vue&type=template&id=5b4637f4&":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/AllUnitsComponent.vue?vue&type=template&id=5b4637f4& ***!
+  \**************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AllUnitsComponent_vue_vue_type_template_id_5b4637f4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./AllUnitsComponent.vue?vue&type=template&id=5b4637f4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AllUnitsComponent.vue?vue&type=template&id=5b4637f4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AllUnitsComponent_vue_vue_type_template_id_5b4637f4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AllUnitsComponent_vue_vue_type_template_id_5b4637f4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
