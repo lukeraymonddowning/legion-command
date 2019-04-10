@@ -14,7 +14,7 @@
         /*
          * The component's data.
          */
-        props: ['unitId', 'armyId'],
+        props: ['unitId', 'armyId', 'unitName'],
 
         data() {
             return {};
@@ -38,6 +38,7 @@
              */
             addToArmy(e) {
                 e.preventDefault();
+                EventBus.$emit('show-message', this.unitName + ' added to army');
                 axios.put(`/api/user/armies/${this.armyId}/${this.unitId}`)
                     .then(response => {
                         EventBus.$emit('army-units-edited', this.armyId);

@@ -5,7 +5,12 @@
     "faction": "rebels",
     "army_rank_id": "commander",
     "unique": 1,
-    "points_cost": 160
+    "points_cost": 160,
+    "upgrade_slots": [
+      "force",
+      "force",
+      "gear"
+    ]
   },
   {
     "name": "Darth Vader",
@@ -13,49 +18,85 @@
     "faction": "imperials",
     "army_rank_id": "commander",
     "unique": 1,
-    "points_cost": 200
+    "points_cost": 200,
+    "upgrade_slots": [
+      "force",
+      "force",
+      "force"
+    ]
   },
   {
     "name": "Stormtroopers",
     "unit_card_image_asset_url": "/assets/images/unit_cards/stormtroopers.png",
     "faction": "imperials",
     "army_rank_id": "corps",
-    "points_cost": 44
+    "points_cost": 44,
+    "upgrade_slots": [
+      "heavy-weapon",
+      "personnel",
+      "gear",
+      "grenades"
+    ]
   },
   {
     "name": "AT-ST",
     "unit_card_image_asset_url": "/assets/images/unit_cards/at-st.png",
     "faction": "imperials",
     "army_rank_id": "heavy",
-    "points_cost": 195
+    "points_cost": 195,
+    "upgrade_slots": [
+      "pilot",
+      "hardpoint",
+      "hardpoint",
+      "hardpoint",
+      "comms"
+    ]
   },
   {
     "name": "74-Z Speeder Bikes",
     "unit_card_image_asset_url": "/assets/images/unit_cards/74-z-speeder-bikes.png",
     "faction": "imperials",
     "army_rank_id": "support",
-    "points_cost": 90
+    "points_cost": 90,
+    "upgrade_slots": [
+      "comms"
+    ]
   },
   {
     "name": "Rebel Troopers",
     "unit_card_image_asset_url": "/assets/images/unit_cards/rebel-troopers.png",
     "faction": "rebels",
     "army_rank_id": "corps",
-    "points_cost": 40
+    "points_cost": 40,
+    "upgrade_slots": [
+      "heavy-weapon",
+      "personnel",
+      "gear",
+      "grenades"
+    ]
   },
   {
     "name": "AT-RT",
     "unit_card_image_asset_url": "/assets/images/unit_cards/at-rt.png",
     "faction": "rebels",
     "army_rank_id": "support",
-    "points_cost": 55
+    "points_cost": 55,
+    "upgrade_slots": [
+      "hardpoint",
+      "comms"
+    ]
   },
   {
     "name": "T-47 Airspeeder",
     "unit_card_image_asset_url": "/assets/images/unit_cards/t-47-airspeeder.png",
     "faction": "rebels",
     "army_rank_id": "heavy",
-    "points_cost": 175
+    "points_cost": 175,
+    "upgrade_slots": [
+      "pilot",
+      "hardpoint",
+      "comms"
+    ]
   },
   {
     "name": "General Veers",
@@ -63,14 +104,25 @@
     "faction": "imperials",
     "army_rank_id": "commander",
     "unique": 1,
-    "points_cost": 80
+    "points_cost": 80,
+    "upgrade_slots": [
+      "command",
+      "command",
+      "gear"
+    ]
   },
   {
     "name": "Snowtroopers",
     "unit_card_image_asset_url": "/assets/images/unit_cards/snowtroopers.png",
     "faction": "imperials",
     "army_rank_id": "corps",
-    "points_cost": 48
+    "points_cost": 48,
+    "upgrade_slots": [
+      "heavy-weapon",
+      "personnel",
+      "gear",
+      "grenades"
+    ]
   },
   {
     "name": "Director Orson Krennic",
@@ -78,7 +130,12 @@
     "faction": "imperials",
     "army_rank_id": "commander",
     "unique": 1,
-    "points_cost": 90
+    "points_cost": 90,
+    "upgrade_slots": [
+      "command",
+      "command",
+      "gear"
+    ]
   },
   {
     "name": "Emperor Palpatine",
@@ -86,14 +143,24 @@
     "faction": "imperials",
     "army_rank_id": "commander",
     "unique": 1,
-    "points_cost": 210
+    "points_cost": 210,
+    "upgrade_slots": [
+      "force",
+      "force",
+      "force",
+      "gear"
+    ]
   },
   {
     "name": "Imperial Officer",
     "unit_card_image_asset_url": "/assets/images/unit_cards/imperial-officer.png",
     "faction": "imperials",
     "army_rank_id": "commander",
-    "points_cost": 50
+    "points_cost": 50,
+    "upgrade_slots": [
+      "command",
+      "gear"
+    ]
   },
   {
     "name": "Boba Fett",
@@ -101,42 +168,81 @@
     "faction": "imperials",
     "army_rank_id": "operative",
     "unique": 1,
-    "points_cost": 140
+    "points_cost": 140,
+    "upgrade_slots": [
+      "training",
+      "training",
+      "gear",
+      "gear"
+    ]
   },
   {
     "name": "Scout Troopers",
     "unit_card_image_asset_url": "/assets/images/unit_cards/scout-troopers.png",
     "faction": "imperials",
     "army_rank_id": "special-forces",
-    "points_cost": 60
+    "points_cost": 60,
+    "upgrade_slots": [
+      "heavy-weapon",
+      "training",
+      "comms",
+      "gear",
+      "grenades"
+    ]
   },
   {
     "name": "Scout Troopers Strike Team",
     "unit_card_image_asset_url": "/assets/images/unit_cards/scout-troopers-strike-team.png",
     "faction": "imperials",
     "army_rank_id": "special-forces",
-    "points_cost": 16
+    "points_cost": 16,
+    "upgrade_slots": [
+      "heavy-weapon",
+      "training",
+      "comms",
+      "gear",
+      "grenades"
+    ]
   },
   {
     "name": "Imperial Death Troopers",
     "unit_card_image_asset_url": "/assets/images/unit_cards/imperial-death-troopers.png",
     "faction": "imperials",
     "army_rank_id": "special-forces",
-    "points_cost": 76
+    "points_cost": 76,
+    "upgrade_slots": [
+      "heavy-weapon",
+      "training",
+      "comms",
+      "gear",
+      "armament",
+      "grenades"
+    ]
   },
   {
     "name": "Imperial Royal Guards",
     "unit_card_image_asset_url": "/assets/images/unit_cards/imperial-royal-guards.png",
     "faction": "imperials",
     "army_rank_id": "special-forces",
-    "points_cost": 75
+    "points_cost": 75,
+    "upgrade_slots": [
+      "heavy-weapon",
+      "training",
+      "training",
+      "gear",
+      "grenades"
+    ]
   },
   {
     "name": "E-Web Heavy Blaster Team",
     "unit_card_image_asset_url": "/assets/images/unit_cards/e-web-heavy-blaster-team.png",
     "faction": "imperials",
     "army_rank_id": "support",
-    "points_cost": 55
+    "points_cost": 55,
+    "upgrade_slots": [
+      "comms",
+      "generator"
+    ]
   },
   {
     "name": "Han Solo",
@@ -144,110 +250,190 @@
     "faction": "rebels",
     "army_rank_id": "commander",
     "points_cost": 120,
-    "unique": 1
+    "unique": 1,
+    "upgrade_slots": [
+      "command",
+      "training",
+      "gear"
+    ]
   },
   {
-      "name": "Leia Organa",
-      "unit_card_image_asset_url": "/assets/images/unit_cards/leia-organa.png",
-      "faction": "rebels",
-      "army_rank_id": "commander",
-      "points_cost": "90",
-      "unique": 1
+    "name": "Leia Organa",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/leia-organa.png",
+    "faction": "rebels",
+    "army_rank_id": "commander",
+    "points_cost": "90",
+    "unique": 1,
+    "upgrade_slots": [
+      "command",
+      "command",
+      "gear"
+    ]
   },
   {
-      "name": "Jyn Erso",
-      "unit_card_image_asset_url": "/assets/images/unit_cards/jyn-erso.png",
-      "faction": "rebels",
-      "army_rank_id": "commander",
-      "points_cost": "130",
-      "unique": 1
+    "name": "Jyn Erso",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/jyn-erso.png",
+    "faction": "rebels",
+    "army_rank_id": "commander",
+    "points_cost": "130",
+    "unique": 1,
+    "upgrade_slots": [
+      "command",
+      "training",
+      "gear",
+      "armament"
+    ]
   },
   {
-      "name": "Rebel Officer",
-      "unit_card_image_asset_url": "/assets/images/unit_cards/rebel-officer.png",
-      "faction": "rebels",
-      "army_rank_id": "commander",
-      "points_cost": "50",
-      "unique": 0
+    "name": "Rebel Officer",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/rebel-officer.png",
+    "faction": "rebels",
+    "army_rank_id": "commander",
+    "points_cost": "50",
+    "unique": 0,
+    "upgrade_slots": [
+      "command",
+      "gear"
+    ]
   },
   {
-      "name": "Chewbacca",
-      "unit_card_image_asset_url": "/assets/images/unit_cards/chewbacca.png",
-      "faction": "rebels",
-      "army_rank_id": "operative",
-      "points_cost": "110",
-      "unique": 1
+    "name": "Chewbacca",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/chewbacca.png",
+    "faction": "rebels",
+    "army_rank_id": "operative",
+    "points_cost": "110",
+    "unique": 1,
+    "upgrade_slots": [
+      "training",
+      "training",
+      "gear"
+    ]
   },
   {
-      "name": "Rebel Commandos",
-      "unit_card_image_asset_url": "/assets/images/unit_cards/rebel-commandos.png",
-      "faction": "rebels",
-      "army_rank_id": "special-forces",
-      "points_cost": "60",
-      "unique": 0
+    "name": "Rebel Commandos",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/rebel-commandos.png",
+    "faction": "rebels",
+    "army_rank_id": "special-forces",
+    "points_cost": "60",
+    "unique": 0,
+    "upgrade_slots": [
+      "heavy-weapon",
+      "training",
+      "comms",
+      "gear",
+      "grenades"
+    ]
   },
   {
-      "name": "Rebel Commandos Strike Team",
-      "unit_card_image_asset_url": "/assets/images/unit_cards/rebel-commandos-strike-team.png",
-      "faction": "rebels",
-      "army_rank_id": "special-forces",
-      "points_cost": "16",
-      "unique": 0
+    "name": "Rebel Commandos Strike Team",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/rebel-commandos-strike-team.png",
+    "faction": "rebels",
+    "army_rank_id": "special-forces",
+    "points_cost": "16",
+    "unique": 0,
+    "upgrade_slots": [
+      "heavy-weapon",
+      "training",
+      "comms",
+      "gear",
+      "grenades"
+    ]
   },
   {
-      "name": "Wookiee Warriors",
-      "unit_card_image_asset_url": "/assets/images/unit_cards/wookiee-warriors.png",
-      "faction": "rebels",
-      "army_rank_id": "special-forces",
-      "points_cost": "75",
-      "unique": 0
+    "name": "Wookiee Warriors",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/wookiee-warriors.png",
+    "faction": "rebels",
+    "army_rank_id": "special-forces",
+    "points_cost": "75",
+    "unique": 0,
+    "upgrade_slots": [
+      "heavy-weapon",
+      "training",
+      "training",
+      "gear",
+      "grenades"
+    ]
   },
   {
-      "name": "Rebel Pathfinders",
-      "unit_card_image_asset_url": "/assets/images/unit_cards/rebel-pathfinders.png",
-      "faction": "rebels",
-      "army_rank_id": "special-forces",
-      "points_cost": "68",
-      "unique": 0
+    "name": "Rebel Pathfinders",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/rebel-pathfinders.png",
+    "faction": "rebels",
+    "army_rank_id": "special-forces",
+    "points_cost": "68",
+    "unique": 0,
+    "upgrade_slots": [
+      "heavy-weapon",
+      "training",
+      "comms",
+      "gear",
+      "armament",
+      "grenades"
+    ]
   },
   {
-      "name": "1.4 FD Laser Cannon Team",
-      "unit_card_image_asset_url": "/assets/images/unit_cards/1.4-fd-laser-cannon-team.png",
-      "faction": "rebels",
-      "army_rank_id": "support",
-      "points_cost": "70",
-      "unique": 0
+    "name": "1.4 FD Laser Cannon Team",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/1.4-fd-laser-cannon-team.png",
+    "faction": "rebels",
+    "army_rank_id": "support",
+    "points_cost": "70",
+    "unique": 0,
+    "upgrade_slots": [
+      "comms",
+      "generator"
+    ]
   },
   {
-      "name": "TX-225 GAVw Occupier Combat Assault Tank",
-      "unit_card_image_asset_url": "/assets/images/unit_cards/tx-225-gavw-occupier-combat-assualt-tank.jpg",
-      "faction": "imperials",
-      "army_rank_id": "heavy",
-      "points_cost": "155",
-      "unique": 0
+    "name": "TX-225 GAVw Occupier Combat Assault Tank",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/tx-225-gavw-occupier-combat-assualt-tank.jpg",
+    "faction": "imperials",
+    "army_rank_id": "heavy",
+    "points_cost": "155",
+    "unique": 0,
+    "upgrade_slots": [
+      "pilot",
+      "hardpoint",
+      "comms"
+    ]
   },
   {
-      "name": "Sabine Wren",
-      "unit_card_image_asset_url": "/assets/images/unit_cards/sabine-wren.jpg",
-      "faction": "rebels",
-      "army_rank_id": "operative",
-      "points_cost": "125",
-      "unique": 1
+    "name": "Sabine Wren",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/sabine-wren.jpg",
+    "faction": "rebels",
+    "army_rank_id": "operative",
+    "points_cost": "125",
+    "unique": 1,
+    "upgrade_slots": [
+      "training",
+      "gear",
+      "gear",
+      "armament"
+    ]
   },
   {
-      "name": "Bossk",
-      "unit_card_image_asset_url": "/assets/images/unit_cards/bossk.jpg",
-      "faction": "imperials",
-      "army_rank_id": "operative",
-      "points_cost": "115",
-      "unique": 1
+    "name": "Bossk",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/bossk.jpg",
+    "faction": "imperials",
+    "army_rank_id": "operative",
+    "points_cost": "115",
+    "unique": 1,
+    "upgrade_slots": [
+      "training",
+      "training",
+      "gear"
+    ]
   },
   {
-      "name": "Fleet Troopers",
-      "unit_card_image_asset_url": "/assets/images/unit_cards/fleet-troopers.png",
-      "faction": "rebels",
-      "army_rank_id": "corps",
-      "points_cost": "44",
-      "unique": 0
+    "name": "Fleet Troopers",
+    "unit_card_image_asset_url": "/assets/images/unit_cards/fleet-troopers.png",
+    "faction": "rebels",
+    "army_rank_id": "corps",
+    "points_cost": "44",
+    "unique": 0,
+    "upgrade_slots": [
+      "heavy-weapon",
+      "personnel",
+      "gear",
+      "grenades"
+    ]
   }
 ]

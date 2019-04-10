@@ -70,9 +70,11 @@ Route::middleware('auth:api')->get('/user/armies/{army_id}/rank', function (Requ
     $allowances = ArmyCostRankAllowance::where('points', $army->points_limit)->select('army_rank_id', 'allowance', 'minimum')->with('rank')->get()->values()->sortBy('rank.order_of_importance')->mapWithKeys(function($allowance, $key) {
         $rank_id = $allowance->army_rank_id;
         $rank_name = $allowance->rank->name;
+        $rank_image = $allowance->rank->rank_image_asset_url;
         unset($allowance->army_rank_id);
         unset($allowance->rank);
         $allowance['name'] = $rank_name;
+        $allowance['rank_image_asset_url'] = $rank_image;
         return [$rank_id => $allowance];
     });
 

@@ -10674,3 +10674,59 @@ button {
   white-space: nowrap;
 }
 
+.alert.show {
+  -webkit-animation: slide-up 250ms;
+          animation: slide-up 250ms;
+  opacity: 1;
+}
+
+.alert.hide {
+  -webkit-animation: fade-out 450ms;
+          animation: fade-out 450ms;
+  opacity: 0;
+}
+
+@-webkit-keyframes slide-up {
+  0% {
+    -webkit-transform: translateY(150px);
+            transform: translateY(150px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    -webkit-transform: translateY(150px);
+            transform: translateY(150px);
+  }
+
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+

@@ -132,7 +132,8 @@
                 } else if (this.type === 'army') {
                     return {
                         unitId: item.unit.id,
-                        armyId: this.armyId
+                        armyId: this.armyId,
+                        unitName: this.unit.name
                     };
                 }
 

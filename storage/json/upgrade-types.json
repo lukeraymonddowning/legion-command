@@ -1,0 +1,41 @@
+{
+  "heavy-weapon": {
+    "name": "Heavy Weapon"
+  },
+  "personnel": {
+    "name": "Personnel"
+  },
+  "force": {
+    "name": "Force"
+  },
+  "command": {
+    "name": "Command"
+  },
+  "hardpoint": {
+    "name": "Hardpoint"
+  },
+  "gear": {
+    "name": "Gear"
+  },
+  "grenades": {
+    "name": "Grenades"
+  },
+  "comms": {
+    "name": "Comms"
+  },
+  "pilot": {
+    "name": "Pilot"
+  },
+  "training": {
+    "name": "Training"
+  },
+  "generator": {
+    "name": "Generator"
+  },
+  "armament": {
+    "name": "Armament"
+  },
+  "crew": {
+    "name": "Crew"
+  }
+}

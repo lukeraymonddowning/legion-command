@@ -4,7 +4,7 @@
              v-for="item in units.d" class="col-12 col-xl-4 col-md-6 mb-3 mb-lg-4 d-flex flex-column flex-md-column-reverse">
             <div class="d-flex flex-row flex-md-column-reverse align-items-center mt-md-3">
                 <span class="flex-grow-1 mt-md-2">{{ item.name }}</span>
-                <add-to-army-button v-bind:unit-id="item.id" v-bind:army-id="armyId"></add-to-army-button>
+                <add-to-army-button v-bind:unit-id="item.id" v-bind:army-id="armyId" v-bind:unit-name="item.name"></add-to-army-button>
             </div>
             <img class="img-fluid mt-2 w-100" v-bind:src="item.unit_card_image_asset_url"/>
         </div>

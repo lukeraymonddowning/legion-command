@@ -1,26 +1,32 @@
 {
   "commander": {
     "name": "Commander",
-    "order_of_importance": 1
+    "order_of_importance": 1,
+    "rank_image_asset_url": "/assets/images/rank_icons/rank-icon-commander.svg"
   },
   "corps": {
     "name": "Corps",
-    "order_of_importance": 3
+    "order_of_importance": 3,
+    "rank_image_asset_url": "/assets/images/rank_icons/rank-icon-corps.svg"
   },
   "operative": {
     "name": "Operative",
-    "order_of_importance": 2
+    "order_of_importance": 2,
+    "rank_image_asset_url": "/assets/images/rank_icons/rank-icon-operative.svg"
   },
   "special-forces": {
     "name": "Special Forces",
-    "order_of_importance": 4
+    "order_of_importance": 4,
+    "rank_image_asset_url": "/assets/images/rank_icons/rank-icon-special-forces.svg"
   },
   "support": {
     "name": "Support",
-    "order_of_importance": 5
+    "order_of_importance": 5,
+    "rank_image_asset_url": "/assets/images/rank_icons/rank-icon-support.svg"
   },
   "heavy": {
     "name": "Heavy",
-    "order_of_importance": 6
+    "order_of_importance": 6,
+    "rank_image_asset_url": "/assets/images/rank_icons/rank-icon-heavy.svg"
   }
 }

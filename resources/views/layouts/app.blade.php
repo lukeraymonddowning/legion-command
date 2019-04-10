@@ -87,6 +87,8 @@
         @yield('content')
     </main>
 
+    <floating-notification></floating-notification>
+
 </div>
 </body>
 </html>

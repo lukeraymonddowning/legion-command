@@ -6,7 +6,8 @@
                 <div class="d-flex flex-row flex-md-column-reverse align-items-center mt-md-3">
                     <span class="flex-grow-1 mt-md-2 ">{{ item.unit.name }}</span>
                     <remove-from-army-button v-bind:army-id="armyId"
-                                             v-bind:unit-id="item.unit.id"></remove-from-army-button>
+                                             v-bind:unit-id="item.unit.id"
+                    ></remove-from-army-button>
                 </div>
                 <img class="img-fluid mt-2 w-100" v-bind:src="item.unit.unit_card_image_asset_url"/>
 

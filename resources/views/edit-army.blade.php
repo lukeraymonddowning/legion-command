@@ -28,7 +28,7 @@
             </div>
 
             <div class="row justify-content-center">
-                <div class="col-md-6">
+                <div class="col-md-6 order-2 order-md-1">
                     <edit-army-left-panel
                             v-bind:limit-to-inventory="{{ empty($army->limit_to_user_inventory) ? 'false' : 'true' }}"
                             v-bind:title="'{{ __("Available units") }}'"
@@ -36,7 +36,7 @@
                             v-bind:factions="{{ json_encode([$faction], JSON_FORCE_OBJECT) }}"></edit-army-left-panel>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-6 order-1 order-md-2">
                     @card()
                     @slot('title')
                         {{__("Selected units")}}
